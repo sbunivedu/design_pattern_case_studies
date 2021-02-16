@@ -84,7 +84,7 @@ public class TestFactory {
   }
 }
 ```
-live code https://repl.it/join/jgenrxdy-lubaochuan
+live code https://repl.it/@lubaochuan/SomberVainFormats
 
 ## Factory Design Pattern Advantages
 * It provides access to interface rather than implementation.
