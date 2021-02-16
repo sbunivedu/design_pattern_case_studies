@@ -7,62 +7,62 @@ gets the modified behavior.
 
 ```java
 interface Car {
-	public void assemble();
+  public void assemble();
 }
 
 class BasicCar implements Car {
-	@Override
-	public void assemble() {
-		System.out.print("Basic Car.");
-	}
+  @Override
+  public void assemble() {
+    System.out.print("Basic Car.");
+  }
 }
 
 class CarDecorator implements Car {
-	protected Car car;
+  protected Car car;
 
-	public CarDecorator(Car c){
-		this.car=c;
-	}
+  public CarDecorator(Car c){
+    this.car=c;
+  }
 
-	@Override
-	public void assemble() {
-		this.car.assemble();
-	}
+  @Override
+  public void assemble() {
+    this.car.assemble();
+  }
 }
 
 class SportsCar extends CarDecorator {
-	public SportsCar(Car c) {
-		super(c);
-	}
+  public SportsCar(Car c) {
+    super(c);
+  }
 
-	@Override
-	public void assemble(){
-		super.assemble();
-		System.out.print(" Adding features of Sports Car.");
-	}
+  @Override
+  public void assemble(){
+    super.assemble();
+    System.out.print(" Adding features of Sports Car.");
+  }
 }
 
 class LuxuryCar extends CarDecorator {
-	public LuxuryCar(Car c) {
-		super(c);
-	}
+  public LuxuryCar(Car c) {
+    super(c);
+  }
 
-	@Override
-	public void assemble(){
-		super.assemble();
-		System.out.print(" Adding features of Luxury Car.");
-	}
+  @Override
+  public void assemble(){
+    super.assemble();
+    System.out.print(" Adding features of Luxury Car.");
+  }
 }
 
 public class DecoratorPatternTest {
-	public static void main(String[] args) {
-		Car sportsCar = new SportsCar(new BasicCar());
-		sportsCar.assemble();
-		System.out.println("\n*****");
+  public static void main(String[] args) {
+    Car sportsCar = new SportsCar(new BasicCar());
+    sportsCar.assemble();
+    System.out.println("\n*****");
 
-		Car sportsLuxuryCar = new SportsCar(new LuxuryCar(new BasicCar()));
-		sportsLuxuryCar.assemble();
-	}
+    Car sportsLuxuryCar = new SportsCar(new LuxuryCar(new BasicCar()));
+    sportsLuxuryCar.assemble();
+  }
 }
 ```
 

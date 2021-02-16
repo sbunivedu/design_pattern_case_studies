@@ -6,70 +6,70 @@ import java.util.List;
 
 
 public class TestCompositePattern {
-	public static void main(String[] args) {
-		Shape t1 = new Triangle();
-		Shape t2 = new Triangle();
-		Shape c = new Circle();
+  public static void main(String[] args) {
+    Shape t1 = new Triangle();
+    Shape t2 = new Triangle();
+    Shape c = new Circle();
 
-		Drawing drawing = new Drawing();
-		drawing.add(t2);
-		drawing.add(t2);
-		drawing.add(c);
+    Drawing drawing = new Drawing();
+    drawing.add(t2);
+    drawing.add(t2);
+    drawing.add(c);
 
-		drawing.draw("Red");
+    drawing.draw("Red");
 
-		drawing.clear();
+    drawing.clear();
 
-		drawing.add(t1);
-		drawing.add(c);
-		drawing.draw("Green");
-	}
+    drawing.add(t1);
+    drawing.add(c);
+    drawing.draw("Green");
+  }
 }
 
 class Drawing implements Shape{
-	//collection of Shapes
-	private List<Shape> shapes = new ArrayList<Shape>();
+  //collection of Shapes
+  private List<Shape> shapes = new ArrayList<Shape>();
 
-	@Override
-	public void draw(String fillColor) {
-		for(Shape sh : shapes){
-			sh.draw(fillColor);
-		}
-	}
+  @Override
+  public void draw(String fillColor) {
+    for(Shape sh : shapes){
+      sh.draw(fillColor);
+    }
+  }
 
-	//adding shape to drawing
-	public void add(Shape s){
-		this.shapes.add(s);
-	}
+  //adding shape to drawing
+  public void add(Shape s){
+    this.shapes.add(s);
+  }
 
-	//removing shape from drawing
-	public void remove(Shape s){
-		shapes.remove(s);
-	}
+  //removing shape from drawing
+  public void remove(Shape s){
+    shapes.remove(s);
+  }
 
-	//removing all the shapes
-	public void clear(){
-		System.out.println("Clearing all the shapes from drawing");
-		this.shapes.clear();
-	}
+  //removing all the shapes
+  public void clear(){
+    System.out.println("Clearing all the shapes from drawing");
+    this.shapes.clear();
+  }
 }
 
 interface Shape {
-	public void draw(String fillColor);
+  public void draw(String fillColor);
 }
 
 class Triangle implements Shape {
-	@Override
-	public void draw(String fillColor) {
-		System.out.println("Drawing Triangle with color "+fillColor);
-	}
+  @Override
+  public void draw(String fillColor) {
+    System.out.println("Drawing Triangle with color "+fillColor);
+  }
 }
 
 class Circle implements Shape {
-	@Override
-	public void draw(String fillColor) {
-		System.out.println("Drawing Circle with color "+fillColor);
-	}
+  @Override
+  public void draw(String fillColor) {
+    System.out.println("Drawing Circle with color "+fillColor);
+  }
 }
 ```
 

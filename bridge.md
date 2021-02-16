@@ -6,65 +6,65 @@ The implementation of bridge design pattern follows the principle of preferring 
 
 ```java
 interface Color {
-	public void applyColor();
+  public void applyColor();
 }
 
 abstract class Shape {
-	//Composition - implementor
-	protected Color color;
+  //Composition - implementor
+  protected Color color;
 
-	//constructor with implementor as input argument
-	public Shape(Color c){
-		this.color=c;
-	}
+  //constructor with implementor as input argument
+  public Shape(Color c){
+    this.color=c;
+  }
 
-	abstract public void applyColor();
+  abstract public void applyColor();
 }
 
 class Triangle extends Shape{
-	public Triangle(Color c) {
-		super(c);
-	}
+  public Triangle(Color c) {
+    super(c);
+  }
 
-	@Override
-	public void applyColor() {
-		System.out.print("Triangle filled with color ");
-		color.applyColor();
-	}
+  @Override
+  public void applyColor() {
+    System.out.print("Triangle filled with color ");
+    color.applyColor();
+  }
 }
 
 class Pentagon extends Shape{
-	public Pentagon(Color c) {
-		super(c);
-	}
+  public Pentagon(Color c) {
+    super(c);
+  }
 
-	@Override
-	public void applyColor() {
-		System.out.print("Pentagon filled with color ");
-		color.applyColor();
-	}
+  @Override
+  public void applyColor() {
+    System.out.print("Pentagon filled with color ");
+    color.applyColor();
+  }
 }
 
 class RedColor implements Color{
-	public void applyColor(){
-		System.out.println("red.");
-	}
+  public void applyColor(){
+    System.out.println("red.");
+  }
 }
 
 class GreenColor implements Color{
-	public void applyColor(){
-		System.out.println("green.");
-	}
+  public void applyColor(){
+    System.out.println("green.");
+  }
 }
 
 public class BridgePatternTest {
-	public static void main(String[] args) {
-		Shape tri = new Triangle(new RedColor());
-		tri.applyColor();
+  public static void main(String[] args) {
+    Shape tri = new Triangle(new RedColor());
+    tri.applyColor();
 
-		Shape pent = new Pentagon(new GreenColor());
-		pent.applyColor();
-	}
+    Shape pent = new Pentagon(new GreenColor());
+    pent.applyColor();
+  }
 }
 ```
 
