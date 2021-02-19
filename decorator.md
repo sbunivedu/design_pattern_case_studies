@@ -69,4 +69,4 @@ public class DecoratorPatternTest {
 live code https://repl.it/join/jawfzsed-lubaochuan
 
 sources:
-*
+* https://www.journaldev.com/1540/decorator-design-pattern-in-java-example
